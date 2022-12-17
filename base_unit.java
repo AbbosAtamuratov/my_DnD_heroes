@@ -18,48 +18,12 @@ public abstract class base_unit {
 
 
     /*------------------характеристики--и--расчёт-модификаторов-характеристик-----------------------------------*/
-    private void set_strength_modifier(){
-        if (strength>10)
-            strength_modifier = (strength-10)/2;
-        else if (strength<10)
-            strength_modifier = -(10-strength)/2;
-        else strength_modifier = 0;
-    }
-
-    private void set_agility_modifier(){
-        if (agility>10)
-            agility_modifier = (agility-10)/2;
-        else if (agility<10)
-            agility_modifier = -(10-agility)/2;
-        else agility_modifier = 0;
-    }
-    private void set_constitution_modifier(){
-        if (constitution>10)
-            constitution_modifier = (constitution-10)/2;
-        else if (constitution<10)
-            constitution_modifier = -(10-constitution)/2;
-        else constitution_modifier = 0;
-    }
-    private void set_intellect_modifier(){
-        if (intellect>10)
-            intellect_modifier = (intellect-10)/2;
-        else if (intellect<10)
-            intellect_modifier = -(10-intellect)/2;
-        else intellect_modifier = 0;
-    }
-    private void set_wisdom_modifier(){
-        if (wisdom>10)
-            wisdom_modifier = (wisdom-10)/2;
-        else if (wisdom<10)
-            wisdom_modifier = -(10-wisdom)/2;
-        else wisdom_modifier = 0;
-    }
-    private void set_charisma_modifier(){
-        if (charisma>10)
-            charisma_modifier = (charisma-10)/2;
-        else if (charisma<10)
-            charisma_modifier = -(10-charisma)/2;
-        else charisma_modifier = 0;
+    private int set_attribute_modifier(int attribute){
+        if (attribute>10)
+            return  (attribute-10)/2;
+        else if (attribute<10)
+            return  -(10-attribute)/2;
+        else return 0;
     }
 
     public int get_strength_modifier(){ return strength_modifier; }
@@ -83,17 +47,17 @@ public abstract class base_unit {
 /*---------------------------------конструктор--------------------------------------------------*/
     public base_unit(int strength, int agility, int constitution, int intellect, int wisdom, int charisma) {
         this.strength = strength;
-        this.agility= agility;
+        this.agility = agility;
         this.constitution = constitution;
         this.intellect = intellect;
         this.wisdom = wisdom;
         this.charisma = charisma;
-        set_strength_modifier();
-        set_agility_modifier();
-        set_constitution_modifier();
-        set_intellect_modifier();
-        set_wisdom_modifier();
-        set_charisma_modifier();
+        this.strength_modifier = set_attribute_modifier(strength);
+        this.agility_modifier = set_attribute_modifier(agility);
+        this.constitution_modifier = set_attribute_modifier(constitution);
+        this.intellect_modifier = set_attribute_modifier(intellect);
+        this.wisdom_modifier = set_attribute_modifier(wisdom);
+        this.choose_modifier(charisma);
         set_hit_points();
     }
 /*---------------------------------конец-конструктора-----------------------------------------------------------*/
