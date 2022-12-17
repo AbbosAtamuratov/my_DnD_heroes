@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class DiceRoll {
+public class Dice {
     public int roll_d4() {
         return new Random().nextInt(1,5);
     }
