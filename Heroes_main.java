@@ -7,8 +7,5 @@ public class Heroes_main {
         System.out.println(r1.read_skills());
         System.out.println("Проверка знания магии: "+r1.skill_check(4));
 
-        HashMap<Integer, String> h1 = r1.skill_names;
-
-        System.out.println(h1.get(5));
     }
 }

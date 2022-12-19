@@ -146,4 +146,5 @@ public abstract class base_unit {
             take_damage(enemy_damage);
     }
 
+    public String get_skill_name(int skill_key){ return this.skill_names.get(skill_key); }
 }
